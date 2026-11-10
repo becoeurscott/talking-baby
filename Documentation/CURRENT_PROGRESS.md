@@ -11,12 +11,17 @@
   - Note: Web Build-And-Run test deferred (use a `Builds/Web` subfolder, not the project root).
 
 ## Current milestone
-**M2 — Baby character concept + prototype model import** — Status: **Not started**
+**M2 — Baby character concept + prototype model import** — Status: **Phase 1 approved; Phase 2 (get a 3D model) — choosing route**
 
 ## Pending tasks
-- Define the baby's appearance, proportions and expression set (concept phase, no 3D tools needed from user yet).
-- Write the 3D modelling + rigging + blend-shape specification.
-- Decide how to obtain the prototype model (Blender by hand / Meshy / Tripo / asset) and import it (PROTOTYPE) with URP materials.
+- [x] Phase 1: concept chosen (concept 2) + `CHARACTER_BABY_SPEC.md` (APPROVED 2026-11-10)
+- [x] Phase 2 route chosen: Meshy **Pro** via MCP server (user's own account). Decided 2026-11-10.
+- [x] Baby generated (Image-to-3D, meshy-t2.5 + meshy-n1, 15k tris, T-pose) — 15 credits
+- [x] Baby auto-rigged with free walk + run animations — 5 credits
+- [ ] Import files into Unity (M3 starter)
+- [ ] Install Blender (later, for face polish, blend shapes, topology fixes)
+
+Meshy credits used: 20 / 1,100 (resets 2026-12-10).
 
 ## GitHub
 - Repository: https://github.com/becoeurscott/talking-baby (branch `main`) — not yet connected; push happens at M1 step 5.

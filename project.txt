@@ -1,0 +1,1003 @@
+Complete Game Development Blueprint
+
+PROJECT: MY LITTLE LIFE
+
+The vision: Create a mobile game with the visual polish, character expressiveness and satisfying interactions of Talking Tom, but with a completely original human character who experiences an entire lifetime.
+
+The player starts by raising a baby. Over time, that baby becomes a toddler, child, teenager and adult, eventually getting married, having children and leaving the childhood home.
+
+This blueprint is designed around an indie developer or a very small team using AI-assisted development.
+
+1. Game identity and creative direction
+
+MY LITTLE LIFE
+
+A LITTLE LIFE. A MILLION MEMORIES.
+
+Genre: Virtual companion + life simulation
+
+Platforms: Android and iOS
+
+Engine: Unity 3D
+
+Rendering: Universal Render Pipeline (URP)
+
+Camera: Third-person fixed frontal camera, Talking Tom-style interaction
+
+Business model: Free-to-play with optional cosmetics and expansion content
+
+Target audience: Casual players, families and life-simulation enthusiasts
+
+The core experience
+
+There are three pillars:
+
+* Emotional connection: Players become attached to their character.
+* Interactive entertainment: Every interaction feels responsive, animated and rewarding.
+* Life progression: Players are curious to discover what happens next in their character’s life.
+
+The game should feel like a living animated world rather than a collection of menus.
+
+Visual identity
+
+Use these visual principles:
+
+* Rounded, appealing character proportions.
+* Large expressive eyes.
+* Soft skin shading and subtle subsurface scattering.
+* High-quality hair and clothing.
+* Soft shadows and ambient occlusion.
+* Colorful but controlled environments.
+* Smooth camera transitions.
+* Exaggerated but believable facial expressions.
+
+Important: Talking Tom is the quality reference, not an asset or character template to copy. Develop original characters, models, animations, UI, sounds and branding.
+
+2. Complete game progression
+
+The central mechanic is a character living through one accelerated year.
+
+I recommend 365 in-game days, with the ability to pause time, sleep through the night and accelerate routine activities.
+
+Life stages
+
+In-game days	Age stage	Main gameplay
+1–30	Baby	Feeding, sleeping, crying, playing
+31–90	Toddler	Walking, talking, exploration
+91–150	Child	School, friends, learning
+151–210	Teenager	Relationships, hobbies, independence
+211–270	Young adult	Work, income, dating
+271–330	Parent	Marriage, children, parenting
+331–365	Independent adult	Moving out, new household
+
+These are game progression stages, not realistic human development milestones.
+
+Stage 1: Baby
+
+The player is responsible for the baby’s daily needs.
+
+Interactions:
+
+* Feed the baby.
+* Give it milk.
+* Change diapers.
+* Bathe it.
+* Put it to sleep.
+* Play with toys.
+* Tickle its feet.
+* Touch its cheeks.
+* Make it laugh.
+* Listen to its babbling.
+
+The baby must have different reactions depending on its mood.
+
+For example:
+
+* Hungry: cries and reaches for the bottle.
+* Happy: smiles and laughs.
+* Sleepy: rubs eyes and yawns.
+* Excited: kicks legs and waves arms.
+
+Stage 2: Toddler
+
+Introduce:
+
+* Walking.
+* First words.
+* Running.
+* Drawing.
+* Toy collection.
+* Learning basic words.
+* Playing with parents.
+* Exploring the house.
+
+Stage 3: School years
+
+Introduce:
+
+* School attendance.
+* Homework.
+* Mini-games.
+* Friendships.
+* Grades.
+* Sports.
+* Hobbies.
+
+The player can complete short educational mini-games to improve intelligence.
+
+Stage 4: Teenage years
+
+Introduce:
+
+* Personal interests.
+* Fashion.
+* Social relationships.
+* Part-time activities.
+* Emotional decisions.
+* First romantic relationships.
+
+Stage 5: Adult life
+
+Introduce:
+
+* Career selection.
+* Salary.
+* Saving money.
+* Dating.
+* Buying clothes.
+* Furnishing a home.
+* Building relationships.
+
+Stage 6: Marriage and children
+
+The player can:
+
+* Choose a partner.
+* Develop a relationship.
+* Get married.
+* Have a baby.
+* Name their child.
+* Feed and raise the next generation.
+
+Stage 7: Leaving home
+
+The character moves into a new home, leaving the childhood household behind.
+
+A particularly powerful ending: the player sees their original parents growing older while the character begins raising a family of their own.
+
+This also creates the possibility of a second generation.
+
+3. Technical architecture
+
+Recommended technology stack
+
+I would not build this game using React Native, Flutter or a web game framework. You need a proper 3D engine with advanced animation, lighting and mobile optimization.
+
+Core technology
+
+Component	Technology	Responsibility
+Game engine	Unity 6 LTS	Main application
+Rendering	URP	Mobile graphics
+3D modelling	Blender	Characters and environments
+Texturing	Substance Painter / Blender	Materials and textures
+Animation	Blender + Unity Animator	Character movement
+Facial animation	Blend Shapes	Facial expressions
+Lip synchronization	Unity-compatible lip-sync system	Talking
+Audio	Unity Audio Mixer	Sound effects and voices
+Local storage	JSON / SQLite	Save game
+Cloud services	Firebase (later)	Cloud saves and accounts
+Version control	Git + GitHub	Source management
+
+Unity and Blender should be your primary tools. Avoid introducing unnecessary technologies during the first prototype.
+
+Application architecture
+
+The project should use modular systems rather than placing all the logic in one giant script.
+
+flowchart TD
+    A["MY LITTLE LIFE"] --> B["Game Core"]
+    A --> C["Presentation"]
+    A --> D["Game Content"]
+    B --> E["Life Progression"]
+    B --> F["Character Needs"]
+    B --> G["Interaction System"]
+    B --> H["Save System"]
+    B --> I["Economy System"]
+    C --> J["Character Animator"]
+    C --> K["Facial Expressions"]
+    C --> L["Audio and Lip Sync"]
+    C --> M["Camera and UI"]
+    D --> N["Baby Content"]
+    D --> O["Child Content"]
+    D --> P["Teen Content"]
+    D --> Q["Adult Content"]
+    D --> R["Family Content"]
+
+Recommended Unity folder structure
+
+Assets/
+│
+├── _Project/
+│   ├── Art/
+│   │   ├── Characters/
+│   │   │   ├── Baby/
+│   │   │   ├── Toddler/
+│   │   │   ├── Child/
+│   │   │   ├── Teen/
+│   │   │   └── Adult/
+│   │   ├── Environments/
+│   │   ├── Materials/
+│   │   └── UI/
+│   │
+│   ├── Animations/
+│   │   ├── Locomotion/
+│   │   ├── Facial/
+│   │   ├── Interactions/
+│   │   └── LifeStages/
+│   │
+│   ├── Audio/
+│   ├── Prefabs/
+│   ├── Scenes/
+│   ├── Scripts/
+│   │   ├── Core/
+│   │   ├── Character/
+│   │   ├── Progression/
+│   │   ├── Interaction/
+│   │   ├── Needs/
+│   │   ├── Economy/
+│   │   ├── Save/
+│   │   └── UI/
+│   │
+│   ├── ScriptableObjects/
+│   └── Settings/
+│
+└── Plugins/
+
+Important architectural principle
+
+Use ScriptableObjects for configurable game content.
+
+For example, a baby character should have configurable:
+
+* Hunger decay rate.
+* Sleep requirements.
+* Available interactions.
+* Animation references.
+* Growth requirements.
+* Sound effects.
+
+That way, you can create new life stages without rewriting the entire game.
+
+4. Character and animation system
+
+This is the most important technical investment in the entire project.
+
+Talking Tom feels alive because its character is constantly communicating through movement, facial expressions and reactions.
+
+Your character needs that same level of responsiveness.
+
+A. Character construction
+
+Build the original baby as a complete 3D character with:
+
+* Head and facial geometry.
+* Eyes, eyelids and eyebrows.
+* Mouth and tongue.
+* Body and limbs.
+* Hands and feet.
+* Hair.
+* Clothing.
+* Animation skeleton.
+
+The character should have a consistent identity throughout life. The eyes, facial proportions, skin tone and recognizable features should evolve rather than being replaced by unrelated characters.
+
+B. Animation library
+
+Build the animation library in layers.
+
+Animation category	Required animations
+Idle	Breathing, blinking, looking around
+Facial	Smile, frown, surprise, crying
+Interaction	Tickle, touch, hug, kiss
+Baby	Crawl, sit, kick, sleep
+Movement	Walk, run, jump, dance
+Activities	Eat, drink, brush teeth, bathe
+Social	Wave, laugh, talk, celebrate
+Emotional	Sadness, anger, excitement
+
+Start with approximately 15–20 high-quality animations. Expand the library as the game develops.
+
+C. Animation architecture
+
+Use Unity’s Animator Controller with separate animation layers.
+
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Happy: Positive interaction
+    Idle --> Sad: Negative mood
+    Idle --> Talking: Speech
+    Idle --> Eating: Feed
+    Idle --> Sleeping: Sleep
+    Idle --> Playing: Play
+    Happy --> Idle: Reaction finished
+    Sad --> Crying: Needs unmet
+    Crying --> Idle: Comfort
+    Eating --> Idle: Finished
+    Playing --> Happy: Fun increased
+    Sleeping --> Idle: Energy restored
+    Talking --> Idle: Speech finished
+
+Crucial: Don’t let animations interrupt each other randomly. A character shouldn’t start sleeping while eating or begin walking while sitting down.
+
+Use animation priorities, transition conditions and interaction locks.
+
+D. Facial expression system
+
+Use blend shapes for:
+
+* Eye blinking.
+* Eye direction.
+* Eyebrow movement.
+* Mouth opening.
+* Smiling.
+* Frowning.
+* Cheek movement.
+* Surprise.
+
+Combine these with procedural blinking, eye tracking and subtle head movements.
+
+The player should feel that the character is looking directly at them.
+
+E. Talking system
+
+Implement two distinct modes:
+
+* Character-generated dialogue: pre-recorded or generated voice lines with synchronized facial animation.
+* Talking interaction: the character listens to the player’s voice and responds using an appropriate voice and animation.
+
+For the first release, use pre-recorded voice lines and simple voice reactions. Don’t start with expensive real-time AI conversation.
+
+5. Gameplay systems
+
+A. The five character needs
+
+Character status dashboard
+
+Illustrative game interface
+
+Happiness
+
+85%
+
+Health
+
+95%
+
+Intelligence
+
+62%
+
+Social
+
+72%
+
+Energy
+
+48%
+
+These attributes should influence character behaviour.
+
+Attribute	How to improve it
+Happiness	Play, toys, social activities
+Health	Food, hygiene, exercise, sleep
+Intelligence	School, reading, educational games
+Social	Talking, friendship, family activities
+Energy	Sleeping and resting
+
+For the baby stage, the player is responsible for almost everything. As the character grows, it becomes increasingly autonomous.
+
+B. Interactive environment
+
+Your first environment should be a bedroom.
+
+Every object should have a purpose.
+
+Object	Interaction
+Bed	Sleep
+Refrigerator	Get food
+Bottle	Feed baby
+Toys	Play
+Mirror	Facial expressions
+Wardrobe	Change clothes
+Bath	Hygiene
+Window	Look outside
+Television	Entertainment
+
+Create an interaction system based on raycasting or touch selection.
+
+When the player taps an object:
+
+* Detect the selected object.
+* Check whether the character can interact.
+* Move or position the character if necessary.
+* Play the associated animation.
+* Update the relevant needs.
+* Play audio feedback.
+* Return to the idle state.
+
+C. Character autonomy
+
+This is what makes the experience feel alive.
+
+The character should sometimes act without being instructed.
+
+Examples:
+
+* Looks at the player.
+* Starts playing with a toy.
+* Becomes sleepy.
+* Yawns.
+* Looks around.
+* Waves.
+* Reacts to sounds.
+* Moves around the room.
+
+Use a behaviour state machine with randomized but controlled idle activities.
+
+Do not make the character constantly perform random animations. Actions should depend on needs, mood, environment and life stage.
+
+6. The one-year progression engine
+
+This system deserves its own architecture.
+
+The game should have an internal clock that runs independently of the player’s device clock.
+
+Recommended approach:
+
+* One real-world day equals one in-game day.
+* Players can accelerate routine activities.
+* Major life events happen through progression milestones.
+* The game can be paused.
+* The player can adjust the pace of their character’s life.
+
+For example, the first 30 in-game days represent the baby stage.
+
+Progression logic
+
+public enum LifeStage
+{
+    Baby,
+    Toddler,
+    Child,
+    Teenager,
+    YoungAdult,
+    Parent,
+    IndependentAdult
+}
+public static class LifeProgression
+{
+    public static LifeStage GetStage(int day)
+    {
+        if (day <= 30) return LifeStage.Baby;
+        if (day <= 90) return LifeStage.Toddler;
+        if (day <= 150) return LifeStage.Child;
+        if (day <= 210) return LifeStage.Teenager;
+        if (day <= 270) return LifeStage.YoungAdult;
+        if (day <= 330) return LifeStage.Parent;
+        return LifeStage.IndependentAdult;
+    }
+}
+
+This is an illustrative core function, not the complete progression system.
+
+The actual system should also track:
+
+* Current day.
+* Current stage.
+* Experience.
+* Character attributes.
+* Completed milestones.
+* Relationships.
+* Money.
+* Inventory.
+* Unlocked locations.
+* Major life decisions.
+
+Make the growth meaningful
+
+Don’t simply change the character model when the day counter reaches 31.
+
+Introduce:
+
+* A growth animation.
+* A short cinematic.
+* New character proportions.
+* New clothing.
+* New animations.
+* New interactions.
+* New environments.
+* A short narrative moment.
+
+The player should feel that something important has happened.
+
+7. Art production pipeline
+
+This is where you achieve the visual quality you want without hiring a massive art team.
+
+Recommended workflow
+
+* Concept design
+    Generate character concepts and environment references with AI image generation.
+* 3D modelling
+    Create the final character in Blender. Establish topology suitable for deformation.
+* Texturing
+    Create skin, hair, eyes and clothing materials.
+* Rigging
+    Build the skeleton, facial rig and blend shapes.
+* Animation
+    Produce custom animations in Blender or use Mixamo as a starting point for compatible body movements.
+* Unity integration
+    Import models, materials and animations into Unity.
+* Lighting and polish
+    Configure URP lighting, shadows, post-processing and camera settings.
+* Mobile optimization
+    Test performance on actual Android and iOS devices.
+
+AI tools I would use
+
+Tool	Use
+ChatGPT	Game design, architecture, debugging, prompts
+Blender	3D modelling and editing
+Meshy	AI-assisted 3D asset creation
+Tripo	3D concept-to-model experimentation
+Mixamo	Initial humanoid animation
+ElevenLabs	Original character voices
+Unity Muse / AI coding assistants	Development assistance where available
+Claude Code / Codex	C# scripts, refactoring and debugging
+GitHub	Version control
+
+AI-generated 3D models often require manual topology cleanup, rigging and material adjustments. Never assume a generated character is ready for production.
+
+8. Mobile UI and user experience
+
+The interface should be minimal. The character is the star of the screen.
+
+Main gameplay screen
+
+Recommended layout:
+
+My Little Life
+
+Day 12 · Baby stage
+
+Level 3
+
+Your baby is happy!
+
+Health
+
+Feed
+
+Play
+
+Sleep
+
+Home
+
+Character
+
+Wardrobe
+
+Progress
+
+Conceptual gameplay layout, not a final game screenshot.
+
+Main navigation
+
+Four primary sections:
+
+* Home: interactive room.
+* Character: needs, attributes and personality.
+* Wardrobe: clothes, accessories and customization.
+* Life: progression, milestones and relationships.
+
+Use large touch targets, clear icons and minimal text.
+
+Camera system
+
+The default camera should resemble Talking Tom:
+
+* Character centered in the frame.
+* Medium shot showing most of the body.
+* Slight perspective.
+* Smooth zoom when interacting.
+* Facial close-ups during emotional reactions.
+* Camera transitions for major events.
+
+Allow a little camera movement without making the game feel like a complicated 3D adventure.
+
+9. Sound design
+
+Sound is a major contributor to perceived quality.
+
+You need three sound layers:
+
+Character sounds
+
+* Laughing.
+* Crying.
+* Babbling.
+* Breathing.
+* Eating.
+* Sleeping.
+* Talking.
+
+Environmental sounds
+
+* Birds outside.
+* Wind.
+* Television.
+* Toys.
+* Kitchen sounds.
+* School ambience.
+
+Interface sounds
+
+* Button taps.
+* Rewards.
+* Level-ups.
+* Unlocking items.
+* Growth transitions.
+
+Create an original character voice identity. A baby should have a recognizable set of expressive vocalizations that gradually evolves into a more mature voice.
+
+Avoid generating every voice line dynamically. Pre-recorded voice assets will give you better consistency, lower costs and more predictable gameplay.
+
+10. Save system and data architecture
+
+A player could spend months developing an attachment to their character. Losing that progress would be disastrous.
+
+I recommend two layers:
+
+Local save
+
+* Saves the game automatically.
+* Stores character data.
+* Stores inventory and currency.
+* Stores progression and milestones.
+* Works offline.
+
+Cloud save (later)
+
+* Cross-device synchronization.
+* Account recovery.
+* Backup.
+* Multiple device support.
+
+Example of the save structure:
+
+{
+  "character": {
+    "name": "Oliver",
+    "lifeStage": "Baby",
+    "currentDay": 12,
+    "happiness": 85,
+    "health": 95,
+    "intelligence": 20,
+    "social": 15,
+    "energy": 70
+  },
+  "progression": {
+    "completedMilestones": [
+      "firstSmile"
+    ],
+    "schoolUnlocked": false,
+    "married": false,
+    "hasChildren": false,
+    "movedOut": false
+  },
+  "economy": {
+    "coins": 250
+  }
+}
+
+This is an example data contract. In production, validate save files, version the schema and avoid trusting client-side currency values if you introduce online purchases.
+
+11. Production milestones
+
+This is the order I would actually follow.
+
+Recommended: 6–9 month indie development target
+
+These are planning estimates for a focused solo developer or small team, not guaranteed delivery dates.
+
+Production roadmap
+
+* Month 1 — Foundation
+    * Install Unity and configure URP.
+    * Create the initial project architecture.
+    * Design the original baby character.
+    * Create a basic nursery.
+    * Configure GitHub.
+    Deliverable: 3D prototype
+* Month 2 — Character system
+    * Rig the character.
+    * Import animations.
+    * Create facial expressions.
+    * Implement touch detection.
+    * Implement character reactions.
+    Deliverable: Interactive baby
+* Month 3 — Core gameplay
+    * Feeding.
+    * Sleeping.
+    * Playing.
+    * Hygiene.
+    * Needs system.
+    * Audio and sound effects.
+    Deliverable: Playable baby simulation
+* Month 4 — Progression
+    * Game clock.
+    * Growth transitions.
+    * Character statistics.
+    * Save system.
+    * Toddler model and animations.
+    Deliverable: Baby-to-toddler progression
+* Month 5 — Childhood
+    * Child character.
+    * School environment.
+    * Educational mini-games.
+    * Friends and relationships.
+    Deliverable: Childhood gameplay
+* Month 6 — Adult simulation prototype
+    * Teenager and adult models.
+    * Career and economy prototype.
+    * Dating and relationships.
+    * Marriage and family prototype.
+    Deliverable: Complete life-cycle prototype
+* Months 7–8 — Polish
+    * Additional animations.
+    * UI improvements.
+    * Performance optimization.
+    * Sound design.
+    * Device testing.
+    Deliverable: Release candidate
+* Month 9 — Launch preparation
+    * Android testing.
+    * iOS testing.
+    * Store assets.
+    * Privacy policy.
+    * Bug fixes.
+    * Soft launch.
+    Deliverable: Public release
+
+What to build first versus later
+
+This distinction will protect your budget.
+
+Feature	Priority
+One beautiful baby character	Critical
+One excellent bedroom	Critical
+Touch interactions	Critical
+Facial animation	Critical
+Feeding and sleeping	Critical
+Save system	Critical
+Growth transitions	High
+Toddler and child stages	High
+School and mini-games	Medium
+Marriage and family	Medium
+AI conversation	Low
+Open-world city	Low
+Multiplayer	Low
+
+My strongest recommendation: Don’t build seven complete life stages before validating the first one. Build one exceptionally polished stage, then reuse the technical foundation.
+
+12. AI-assisted development workflow
+
+You can use AI to reduce the amount of manual programming and speed up asset production. However, you should treat AI as a development assistant, not as an autonomous game studio.
+
+I would organize the workflow into five roles.
+
+ChatGPT — Game director
+
+Game design documents, feature specifications, character concepts, architecture and debugging explanations.
+
+Blender — Art production
+
+Character modelling, rigging, environment creation and animation editing.
+
+Unity — Game production
+
+Rendering, animation controllers, interaction systems, physics and builds.
+
+Claude Code / Codex — Programming assistant
+
+C# implementation, code review, debugging, refactoring and project organization.
+
+GitHub — Project management
+
+Version history, backups, branches and collaboration.
+
+The development loop
+
+Every feature should follow the same process:
+
+* Ask AI to design the feature.
+* Get the technical specification.
+* Implement it in Unity.
+* Test it in the editor.
+* Test it on a real phone.
+* Fix visual and gameplay problems.
+* Commit the working version to GitHub.
+
+Never let AI rewrite large parts of your project without reviewing the changes and testing the result.
+
+13. Budget and realistic indie production
+
+You don’t need a million-dollar budget to begin, but the 3D character quality will be your biggest production challenge.
+
+Here is a rough planning budget, not supplier quotes.
+
+Expense	Estimated budget
+Unity	$0 initially
+Blender	$0
+AI design tools	$20–60/month
+3D asset experiments	$30–150
+Voice generation	$0–30/month
+Sound assets	$0–100
+Developer accounts	Additional publishing fees
+Testing devices	Use existing devices initially
+
+Suggested initial prototype budget
+
+$100–300
+
+A lean starting allowance, assuming you do most development yourself and use free software.
+
+You should reserve additional money for publishing, professional art assistance and eventual marketing.
+
+14. Risks to address early
+
+Risk	Solution
+Too many character models	Build a reusable character design and rigging pipeline
+Animation inconsistency	Centralized animation controller
+Large mobile builds	Optimize textures, meshes and audio
+Poor device performance	Test on lower-end Android devices early
+Development becoming too expensive	Use pre-recorded audio and offline gameplay
+Losing player progress	Automatic local saves and backups
+Copyright problems	Original characters, voices, environments and branding
+One-year progression feeling rushed	Offer adjustable time speed and optional extended lifespan
+
+Also, because the game includes a baby and eventually family relationships, design its advertising, privacy and monetization carefully for younger audiences. Avoid manipulative purchases or collecting unnecessary personal data.
+
+15. Your first 14 days: actual execution plan
+
+Don’t start by generating 20 characters. Start by making one character come alive.
+
+First prototype sprint
+
+Your first playable milestone
+
+Sprint progress
+
+0%
+
+Day 1
+
+Install Unity Hub, Unity 6 LTS and Blender.
+
+Day 2
+
+Create the Unity URP mobile project and GitHub repository.
+
+Day 3
+
+Generate the original baby character concept.
+
+Day 4
+
+Create or acquire a suitable 3D baby model.
+
+Day 5
+
+Import the model into Unity and configure materials.
+
+Day 6
+
+Set up the character rig and Animator.
+
+Day 7
+
+Implement idle, blinking and smiling animations.
+
+Day 8
+
+Create the bedroom environment.
+
+Day 9
+
+Implement touch interaction and character reactions.
+
+Day 10
+
+Implement feeding and sleeping.
+
+Day 11
+
+Add facial expressions and voice reactions.
+
+Day 12
+
+Build the first mobile UI.
+
+Day 13
+
+Build and test on Android or iOS.
+
+Day 14
+
+Polish animations, lighting and performance.
+
+Reset checklist
+
+16. Definition of success: the first playable version
+
+Before expanding into childhood, you should be able to demonstrate this:
+
+* The baby looks polished.
+* It blinks naturally.
+* It follows the player’s touch.
+* It laughs when tickled.
+* It cries when hungry.
+* It drinks from a bottle.
+* It sleeps when tired.
+* It responds to voice interactions.
+* Its facial expressions transition smoothly.
+* The game runs smoothly on a real phone.
+* The player’s progress is saved.
+
+If you achieve this, you have the foundation of your game.
+
+My final strategic recommendation
+
+There is one design decision I would make from the beginning:
+
+The child should eventually become the parent.
+
+Imagine this:
+
+You spend the first part of the game raising Oliver. You teach him to walk, send him to school, help him build friendships and watch him grow.
+
+Years later, Oliver gets married and has a baby.
+
+You now get to experience the same parenting mechanics again, but through the next generation.
+
+That gives the game replayability beyond its initial 365-day journey.
+
+It could become a generational life simulator with the intimate character interactions that make Talking Tom so appealing.
+
+What I recommend we do next
+
+Let’s not jump into coding the entire game. Our next concrete milestone should be the character production package:
+
+* Design the original baby character.
+* Establish its exact appearance and proportions.
+* Create its front, side and back references.
+* Define its facial expressions.
+* Prepare the 3D modelling and rigging specification.
+* Create the first animation list.
+
+Once the character is right, everything else becomes easier to build around it.
+
+I can help you work through the production milestones with a weekly development review.
+
+🎮
+
+Weekly game development review
+
+Tap to set up
+
+7
+
+7
+
+7

@@ -5,16 +5,18 @@
 ## Completed (approved) milestones
 - **M0 — Project foundation & documentation** — Approved 2026-11-10
   - Files: `CLAUDE.md`, `Documentation/` (GAME_DESIGN_DOCUMENT, TECHNICAL_ARCHITECTURE, PROJECT_ROADMAP, CURRENT_PROGRESS, DECISION_LOG, KNOWN_ISSUES, ASSET_INVENTORY, TESTING_CHECKLIST)
+- **M1 — Unity 6 URP project + Git/GitHub** — Approved 2026-11-10
+  - Unity 6000.6.8f1, URP, platform = Web. Repo root `C:\Users\becoeur\Desktop\talking baby`, pushed to github.com/becoeurscott/talking-baby (branch `main`).
+  - `.gitignore`, `Assets/_Project/` structure, official Unity skills installed.
+  - Note: Web Build-And-Run test deferred (use a `Builds/Web` subfolder, not the project root).
 
 ## Current milestone
-**M1 — Unity 6 LTS URP project + Git/GitHub** — Status: **In progress — Step 1 (install Unity Hub + Unity 6 LTS with Web Build Support)**
+**M2 — Baby character concept + prototype model import** — Status: **Not started**
 
 ## Pending tasks
-1. User installs Unity Hub + Unity 6 LTS (Web Build Support module).
-2. Create project from Universal 3D template.
-3. .gitignore, folder structure, git init.
-4. Switch platform to Web, build and run in browser.
-5. First commit + push to private GitHub repo.
+- Define the baby's appearance, proportions and expression set (concept phase, no 3D tools needed from user yet).
+- Write the 3D modelling + rigging + blend-shape specification.
+- Decide how to obtain the prototype model (Blender by hand / Meshy / Tripo / asset) and import it (PROTOTYPE) with URP materials.
 
 ## GitHub
 - Repository: https://github.com/becoeurscott/talking-baby (branch `main`) — not yet connected; push happens at M1 step 5.

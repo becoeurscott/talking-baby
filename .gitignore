@@ -64,3 +64,6 @@ Thumbs.db
 # === Node (the skills tooling lives here, keep its lockfile but not modules) ===
 node_modules/
 *.slnx
+
+# Unity Burst compiler generated output (regenerated per build)
+Data/
